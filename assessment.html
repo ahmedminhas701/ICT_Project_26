@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillPath — Skills Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">SkillPath</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assessment.html" class="active">Assessment</a></li>
+        <li><a href="results.html">Recommendations</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Assessment Form -->
+  <main class="container">
+    <div class="page-header">
+      <h1>Skills &amp; Interests Assessment</h1>
+      <p>
+        Check the skills you currently have and the areas you are interested in.
+        Then click <strong>Get Career Recommendations</strong>.
+      </p>
+    </div>
+
+    <!-- Validation Error Message (hidden by default) -->
+    <div id="errorBox" class="error-message">
+      Please select at least one skill or interest before continuing.
+    </div>
+
+    <form id="assessmentForm">
+      <!-- Section 1: Skills Checkboxes (filled automatically by script.js using data.js) -->
+      <section class="assessment-box">
+        <h2>1. Your Current Skills</h2>
+        <p class="assessment-hint">Select any skills you already know or have practiced.</p>
+        <div id="skillsContainer" class="checkbox-grid"></div>
+      </section>
+
+      <!-- Section 2: Interests Checkboxes (filled automatically by script.js using data.js) -->
+      <section class="assessment-box">
+        <h2>2. Your Interests</h2>
+        <p class="assessment-hint">Select the tech fields or activities you enjoy.</p>
+        <div id="interestsContainer" class="checkbox-grid"></div>
+      </section>
+
+      <!-- Action Buttons -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Get Career Recommendations</button>
+        <button type="button" id="clearBtn" class="btn btn-secondary">Clear All</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>SkillPath &copy; 2026 — Skill-Based Career Recommendation Website</p>
+    </div>
+  </footer>
+
+  <!-- Load dataset first, then load script logic -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
