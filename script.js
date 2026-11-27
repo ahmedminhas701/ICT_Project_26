@@ -1,21 +1,8 @@
-/*
-  ============================================================
-  SkillPath JavaScript Logic (script.js)
-  ============================================================
-  This file controls the interactive parts of:
-  - assessment.html: Generates checkboxes, validates input, saves choices
-  - results.html:    Calculates career matches and displays recommendations
-  ============================================================
-*/
-
 // Keys used to save and read user selections in browser localStorage
 const STORAGE_SKILLS_KEY = "skillpath_selected_skills";
 const STORAGE_INTERESTS_KEY = "skillpath_selected_interests";
 
-/*
-  Helper: Creates checkbox items inside a container element.
-  Used on assessment.html for both Skills and Interests.
-*/
+// Creates checkbox items inside a container element
 function renderCheckboxes(items, containerId, inputName, savedItems) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -50,9 +37,7 @@ function renderCheckboxes(items, containerId, inputName, savedItems) {
   }
 }
 
-/*
-  Helper: Returns an array of all checked values for a checkbox group.
-*/
+// Returns an array of all checked values for a checkbox group
 function getCheckedValues(inputName) {
   const checkboxes = document.querySelectorAll(
     'input[name="' + inputName + '"]:checked'
@@ -66,9 +51,7 @@ function getCheckedValues(inputName) {
   return selected;
 }
 
-/*
-  Helper: Safely reads a saved array from localStorage.
-*/
+// Reads a saved array from localStorage
 function loadSavedArray(key) {
   const raw = localStorage.getItem(key);
   if (!raw) return [];
@@ -80,11 +63,7 @@ function loadSavedArray(key) {
   }
 }
 
-/*
-  ============================================================
-  PAGE 2: ASSESSMENT PAGE LOGIC
-  ============================================================
-*/
+// Page 2: Assessment page logic
 function setupAssessmentPage() {
   const form = document.getElementById("assessmentForm");
   if (!form) return; // Stop if we are not on assessment.html
@@ -143,15 +122,7 @@ function setupAssessmentPage() {
   });
 }
 
-/*
-  ============================================================
-  PAGE 3: RECOMMENDATION RULE ENGINE & DISPLAY
-  ============================================================
-  Rule:
-  - Each matched skill adds 2 points.
-  - Each matched interest adds 1 point.
-  - Match % = (earned points / maximum possible points for that career) * 100
-*/
+// Page 3: Calculates career match scores (+2 skill, +1 interest) and sorts results
 function calculateCareerMatches(selectedSkills, selectedInterests) {
   const results = [];
 
@@ -204,9 +175,7 @@ function calculateCareerMatches(selectedSkills, selectedInterests) {
   return results;
 }
 
-/*
-  Helper: Builds a row of colored tag pills (e.g., skills or next steps).
-*/
+// Builds a row of tag pills
 function createTagGroup(labelText, items, tagClass) {
   const row = document.createElement("div");
   row.className = "career-detail-row";
@@ -230,9 +199,7 @@ function createTagGroup(labelText, items, tagClass) {
   return row;
 }
 
-/*
-  Helper: Builds a single career recommendation card element.
-*/
+// Builds a single career recommendation card
 function createCareerCard(item, hasUserInput) {
   const career = item.career;
 

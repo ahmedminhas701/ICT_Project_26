@@ -1,14 +1,3 @@
-/*
-  ============================================================
-  SkillPath Dataset (data.js)
-  ============================================================
-  This file stores all the predefined data used by the website:
-  1. skillsList    -> Checkboxes shown in the "Your Skills" section
-  2. interestsList -> Checkboxes shown in the "Your Interests" section
-  3. careersData   -> Predefined career rules, explanations, and next skills
-  ============================================================
-*/
-
 // 1. List of Skills (displayed as checkboxes on assessment.html)
 const skillsList = [
   "HTML & CSS",
